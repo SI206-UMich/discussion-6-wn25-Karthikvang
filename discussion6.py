@@ -1,6 +1,6 @@
 import unittest
 import os
-
+import csv
 
 def load_csv(f):
     '''
@@ -18,6 +18,23 @@ def load_csv(f):
     base_path = os.path.abspath(os.path.dirname(__file__))
     full_path = os.path.join(base_path, f)
     # use this 'full_path' variable as the file that you open
+    data = open(full_path)
+
+    data_dict = {}
+
+    header = data.readline().strip().split(",")
+    
+    content = data.readlines()
+
+    for year in header:
+        indx = 1
+        for month in content:
+            data_dict[header[indx]][month[0]] = month[indx]
+        indx += 1
+
+    print(data_dict)
+        
+    
 
 def get_annual_max(d):
     '''
@@ -31,7 +48,8 @@ def get_annual_max(d):
     Note: Don't strip or otherwise modify strings. Do not change datatypes except where necessary.
         You'll have to change vals to int to compare them. 
     '''
-    pass
+    max_list = []
+
 
 def get_month_avg(d):
     '''
