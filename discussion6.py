@@ -22,17 +22,19 @@ def load_csv(f):
 
     data_dict = {}
 
-    header = data.readline().strip().split(",")
+    header = data.readline().strip().split(",").remove("Month")
+    
+    print("header: ", header)
     
     content = data.readlines()
 
-    for year in header:
-        indx = 1
-        for month in content:
-            data_dict[header[indx]][month[0]] = month[indx]
-        indx += 1
+    
+    # for year in header:
 
-    print(data_dict)
+        
+        
+
+    
         
     
 
